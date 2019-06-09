@@ -7,8 +7,10 @@
 
 ## Dataset
 ```
- wget -c http://vllab1.ucmerced.edu/~wlai24/video_consistency/data/videvo.zip
+ wget -c http://vllab1.ucmerced.edu/~wlai24/video_consistency/data/videvo.zip # content data set
  unzip videvo.zip 
+ wget -c https://1drv.ms/u/s!AjuMuu6vLknchWxFvJ6uYrNWGk1c # 21 style data set
+ wget -c https://1drv.ms/u/s!AjuMuu6vLknchWxFvJ6uYrNWGk1c # 120 style data set
 ```
 
 ## Pretrained Models
