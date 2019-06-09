@@ -13,8 +13,8 @@
 
 ## Pretrained Models
 ```
-wget -c link1 # 21 styles
-wget -c link2 # 120 styles
+wget -c https://1drv.ms/u/s!AjuMuu6vLknchWuQAkzPxg9Rzhym # 21 styles
+wget -c https://1drv.ms/u/s!AjuMuu6vLknchWo8bw2ZH4kxpaaJ # 120 styles
 ```
 
 ## Test
