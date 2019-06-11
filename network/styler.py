@@ -158,6 +158,10 @@ class ReCoNet(torch.nn.Module):
 
 
     def forward(self, x, bank):
-        print(x.max(), flush=True)
         return self.decoder(self.encoder(x, bank), bank)
+
+if __name__ == '__main__':
+    x = torch.randn(1, 3, 224, 224).cuda()
+    net = ReCoNet().cuda()
+    print(net(x, 0).size())
 
