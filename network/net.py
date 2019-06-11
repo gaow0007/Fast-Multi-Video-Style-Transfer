@@ -4,6 +4,17 @@ from torch.autograd import Variable
 import torch
 from TVLoss import TVLoss
 
+
+def affine_loss(output, M):
+    loss_affine = 0.0
+    N = output.size(0)
+    for i in range(3):
+        # V = output[]
+        loss_affine += tf.matmul(tf.expand_dims(Vc_ravel, 0), tf.sparse_tensor_dense_matmul(M, tf.expand_dims(Vc_ravel, -1)))
+
+    return loss_affine
+
+
 def vgg_norm(var):
     dtype = torch.cuda.FloatTensor
     mean = Variable(torch.zeros(var.size()).type(dtype))
@@ -34,15 +45,15 @@ def gram_matrix(y):
     (b, ch, h, w) = y.size()
     features = y.view(b, ch, w * h)
     features_t = features.transpose(1, 2)
-    gram = features.bmm(features_t) / (ch * h * w)
+    gram = torch.bmm(features, features_t) / (ch * h * w)
     return gram
 
 
 class Net(nn.Module):
-    def __init__(self, styler, vgg16):
+    def __init__(self, styler, vgg):
         super(Net, self).__init__()
         self.styler = styler
-        self.vgg = vgg16
+        self.vgg = vgg
         if self.vgg is not None:
             for param in self.vgg.parameters():
                 param.requires_grad = False
@@ -72,7 +83,8 @@ class Net(nn.Module):
         for i in range(4):
             loss_s += self.calc_style_loss(output_feats[i], style_feats[i])
         loss_t = self.tv_loss(output)
-        return loss_c, loss_s, loss_t
+        save_image(output.data.clone(), 'out.jpg')
+        return loss_c, loss_s, loss_t * 10
 
     def evaluate(self, content, bank):
         with torch.no_grad():
