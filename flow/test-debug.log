@@ -1,17 +1,0 @@
-/home/gaowei/anaconda3/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
-  return f(*args, **kwds)
-/home/gaowei/anaconda3/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
-  return f(*args, **kwds)
-  0%|          | 0/2 [00:00<?, ?it/s]=> fetching img pairs in 'testimages/'
-=> will save everything to testimages/flow
-2 samples found
-=> using pre-trained model 'flownets'
-tensor(204593, device='cuda:0')
-/home/gaowei/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py:1890: UserWarning: nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.
-  warnings.warn("nn.functional.upsample is deprecated. Use nn.functional.interpolate instead.")
-/home/gaowei/anaconda3/lib/python3.6/site-packages/torch/nn/functional.py:1961: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
-  "See the documentation of nn.Upsample for details.".format(mode))
- 50%|█████     | 1/2 [00:01<00:01,  1.01s/it]torch.Size([1, 3, 384, 512])
-tensor(42425, device='cuda:0')
-100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
-torch.Size([1, 3, 512, 512])
