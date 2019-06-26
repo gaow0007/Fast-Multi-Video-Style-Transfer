@@ -19,6 +19,8 @@ wget -c https://1drv.ms/u/s!AjuMuu6vLknchWuQAkzPxg9Rzhym # 21 styles + flow + 2l
 wget -c https://1drv.ms/u/s!AjuMuu6vLknchWo8bw2ZH4kxpaaJ # 120 styles + flow + 2lstm
 wget -c https://1drv.ms/u/s!AjuMuu6vLknchXcmTrwjt1CWlQOt # 21 styles + noflow + no2lstm
 wget -c https://1drv.ms/u/s!AjuMuu6vLknchXZSfbQdR2OxP-Zy # 120 styles + noflow + no2lstm
+download FlowNetS in https://drive.google.com/open?id=0B5EC7HMbyk3CbjFPb0RuODI3NmM  #flownetS
+# more details are seen in https://github.com/ClementPinard/FlowNetPytorch
 
 ```
 
