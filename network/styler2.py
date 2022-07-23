@@ -7,12 +7,14 @@ from torch.nn.parameter import Parameter
 class InstanceBank(torch.nn.Module):
     def __init__(self, out_channels, banknumber):
         super(InstanceBank, self).__init__()
+        self.norm = torch.nn.InstanceNorm2d(out_channels, affine=False, momentum=1.0)
         for i in range(120):
             setattr(self, 'instance{}'.format(i), torch.nn.InstanceNorm2d(out_channels, affine=True, momentum=1.0))
-    def forward(self, x, bank):
+            
+    def forward(self, x, bank, alpha=1.0):
         if bank == -1:
             return x
-        return getattr(self, 'instance{}'.format(bank))(x)
+        return getattr(self, 'instance{}'.format(bank))(x) * alpha + (1-alpha) * self.norm(x)
 
 
 
